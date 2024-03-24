@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing:border-bos;
+            font-family:sana-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            min-height:100vh;
+            background: #111;
+            overflow:hidden
+        }
+        h1{
+            font-size:14vw;
+            z-index:10000;
+            user-select:none;
+            pointer-events:none;
+            text-shadow:5px 5px 5px rgba(255,255,255,10,255);
+            animation:colors 2s linear infinite;
+        }
+        @keyframes colors{
+0%{color:#f00;}
+10%{color:#0f0;}
+20%{color:#00f;}
+30%{color:#0fa;}
+40%{color:#f0a; font-size: 12em;}
+60%{color:#000;}
+70%{color:#90f;}
+80%{color:#804;}
+90%{color:#90f;}
+100%{color:#fff}  
+      }
+      span{
+        position:absolute;
+        pointer-events:all;
+        width:300px;
+        height: 300px;
+        background-size:contain;
+        background-repeat:no-repeat;
+        animation:animate 4s linear infinite;
+    }
+    @keyframes animate{
+        0%{
+            opacity: 0;
+            transform:translate(-50%,-50%)scale(0);
+        }
+        5%,95%{
+            opacity: 1;
+            transform:translate(-50%,-50%) scale(1);
+        }
+        0%{
+            opacity: 0;
+            transform:translate(-50%,-50%) scale(2);
+        }
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOLI CELEBRATION</title>
+</head>
+<body>
+    <h1>HAPPY HOLI </h1>
+    <script>
+        let image=[
+'url("https://media.istockphoto.com/id/513233712/photo/indian-holi-festival-colours.jpg?s=1024x1024")'
+        ];
+        let body=document.querySelector('body');
+        body.oneclick=function(e){
+            let m=e.pageX-e.targetoffsetLeft;
+            let k=e.pageY-e.target.offsetTop;
+            let splash=document.createElement('span');
+            splash.style.left=m +'px';
+            splash.style.Top=k +'px';
+            let bg=images[Maths.floor(Math.random()*images.length)]
+            spalsh.style.backgroundImage=bg;
+            this.appendChild(splash);
+            setTimeout(()=>{
+                splash.remove()
+            },4000)
+        }
+    </script>
+</body>
+</html>
